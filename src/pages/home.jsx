@@ -57,11 +57,16 @@ export default function Home() {
           alt="Modern residential architecture"
           className="absolute inset-0 h-full w-full object-cover"
         />
+        
 
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-950/10" />
 
         <div className="relative mx-auto w-full max-w-7xl px-6 py-24 sm:px-10 lg:px-12">
           <div className="max-w-3xl">
+            <h2>Rubu Construction - Building Houses
+          We build residential houses,rentals,perimeter walls,commercial buildings and more
+          07
+        </h2>
             <p className="mb-6 flex items-center gap-3 text-sm font-bold uppercase tracking-[0.25em] text-amber-400">
               <span className="h-0.5 w-10 bg-amber-400" />
               Building today. Better tomorrow.
