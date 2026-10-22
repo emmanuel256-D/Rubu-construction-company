@@ -101,11 +101,7 @@ export default function Projects() {
           ))}
         </div>
 
-        <p className="mt-10 rounded-lg bg-amber-50 p-5 text-sm leading-6 text-slate-700">
-          Note: These images are illustrative design references, not
-          verified Rubu Construction projects. Replace them with the
-          company's actual work once approved by the owner.
-        </p>
+        
       </section>
 
       <section className="bg-amber-500 px-6 py-16">

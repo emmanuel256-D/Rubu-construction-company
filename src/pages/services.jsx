@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-
+import constructionImage from '../images/construct.jpg'
+import Test from '../images/testing.jpg'
 const services = [
   {
     number: "01",
@@ -7,7 +8,7 @@ const services = [
     description:
       "Construction services for residential and commercial building projects, guided by the project's scope and requirements.",
     image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=85",
+      constructionImage,
   },
   {
     number: "02",
@@ -55,7 +56,7 @@ const services = [
     description:
       "Printing of building plans and blueprints for project documentation and reference.",
     image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=85",
+      Test,
   },
 ];
 

@@ -1,25 +1,55 @@
 import { useState } from "react";
+import Phonecall from '../images/phonecall.jpg'
+import What from '../images/wAlogo.jpg'
+import Email from '../images/gmail.png'
 
-const phone = "254724899484";
+const phone = "+254724899484";
 const email = "rubuconstructioncompany@gmail.com";
 
 export default function Contact() {
   const [form, setForm] = useState({
     name: "",
     contact: "",
+
     service: "General Building Works",
     location: "",
     message: "",
   });
-
   function handleChange(event) {
-    setForm({ ...form, [event.target.name]: event.target.value });
-  }
-
+  setForm({
+    ...form,
+    [event.target.name]: event.target.value,
+  });
+}
   function handleSubmit(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const message = `
+  const enquiry = {
+    id: crypto.randomUUID(),
+    ...form,
+    type: "enquiry",
+    status: "New",
+    createdAt: Date.now(),
+  };
+
+  // Remove enquiries older than 5 days
+  const savedEnquiries = JSON.parse(
+    localStorage.getItem("rubuEnquiries") || "[]"
+  );
+
+  const fiveDays = 5 * 24 * 60 * 60 * 1000;
+
+  const activeEnquiries = savedEnquiries.filter(
+    (item) => Date.now() - item.createdAt < fiveDays
+  );
+
+  // Save this enquiry
+  localStorage.setItem(
+    "rubuEnquiries",
+    JSON.stringify([...activeEnquiries, enquiry])
+  );
+
+  const message = `
 Hello Rubu Construction Company Limited,
 
 My name is ${form.name}.
@@ -31,15 +61,22 @@ Project details:
 ${form.message}
 
 I would like to discuss this project with you.
-    `.trim();
+  `.trim();
 
-    window.open(
-      `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
-      "_blank",
-      "noopener,noreferrer"
-    );
-  }
+  window.open(
+    `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+    "_blank",
+    "noopener,noreferrer"
+  );
 
+  setForm({
+    name: "",
+    contact: "",
+    service: "General Building Works",
+    location: "",
+    message: "",
+  });
+}
   return (
     <main className="bg-slate-50 text-slate-900">
       <section className="bg-slate-950 px-6 py-24 text-white sm:py-28">
@@ -66,38 +103,43 @@ I would like to discuss this project with you.
               projects across Kenya.
             </p>
           </div>
-
           <a
             href={`https://wa.me/${phone}`}
             target="_blank"
             rel="noreferrer"
-            className="flex items-start gap-4 rounded-xl border border-slate-200 bg-white p-5 transition hover:shadow-md"
+            className="group flex items-start gap-4 rounded-[20px] border border-slate-200 bg-white p-5 transition-all duration-300  hover:-translate-y-1 hover:rounded-[28px] hover:shadow-xl hover:border-green-300 active:scale-[0.97]"
           >
-            <span className="text-2xl">📱</span>
-            <span>
-              <span className="block font-bold">Call or WhatsApp</span>
-              <span className="mt-1 block text-slate-600">
-                +254 724 899484
-              </span>
-              <span className="mt-2 block text-sm font-semibold text-amber-700">
-                Start a conversation →
-              </span>
-            </span>
+            <span className="flex-shrink-0 w-14 h-14 rounded-full bg-green-100 p-2.5 flex items-center justify-center shadow-sm transition-all duration-300 hover:scale-110 hover:rotate-3  hover:shadow-md active:scale-90">
+              <img src={What} alt="WhatsApp" className="w-full h-full object-contain rounded-full" /></span>
+              
+    <span className="block font-bold">WhatsApp Me !</span>
+    
           </a>
 
           <a
             href={`mailto:${email}`}
-            className="flex items-start gap-4 rounded-xl border border-slate-200 bg-white p-5 transition hover:shadow-md"
+            className="group flex items-start gap-4 rounded-[20px] border border-slate-200 bg-white p-5 transition-all duration-300  hover:-translate-y-1 hover:rounded-[28px] hover:shadow-xl hover:border-green-300 active:scale-[0.97]"
           >
-            <span className="text-2xl">✉️</span>
-            <span>
-              <span className="block font-bold">Email Us</span>
-              <span className="mt-1 break-all text-slate-600">
-                {email}
-              </span>
-            </span>
+            <span className="flex-shrink-0 w-14 h-14 rounded-full bg-green-100 p-2.5 flex items-center justify-center shadow-sm transition-all duration-300 hover:scale-110 hover:rotate-3  hover:shadow-md active:scale-90">
+              <img src={Email} alt="Email" className="w-full h-full object-contain rounded-full" /></span>
+              
+    <span className="block font-bold">Reach Me Via Email</span>
+  
           </a>
-
+          <a
+  href={`tel:${phone}`}
+  className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-orange-300 hover:rounded-[20px] active:scale-[0.98] cursor-pointer group"
+>
+  <span className="flex-shrink-0 w-14 h-14 rounded-full bg-orange-100 text-orange-600 p-2.5 flex items-center justify-center shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-active:scale-90">
+    📞
+  </span>
+  <span>
+    <span className="block font-bold">Call Us</span>
+    <span className="mt-1 break-all text-slate-600">
+      {phone}
+    </span>
+  </span>
+</a>
           <div className="flex items-start gap-4 rounded-xl border border-slate-200 bg-white p-5">
             <span className="text-2xl">📍</span>
             <span>
@@ -212,13 +254,10 @@ I would like to discuss this project with you.
               type="submit"
               className="w-full rounded-lg bg-amber-500 px-6 py-4 font-bold text-slate-950 transition hover:bg-amber-400"
             >
-              Send Enquiry via WhatsApp →
+              Send Enquiry  →
             </button>
 
-            <p className="text-sm leading-6 text-slate-500">
-              This form opens WhatsApp with your enquiry prepared.
-              It does not store or send information to a website database.
-            </p>
+            
           </form>
         </div>
       </section>
