@@ -140,15 +140,7 @@ I would like to discuss this project with you.
     </span>
   </span>
 </a>
-          <div className="flex items-start gap-4 rounded-xl border border-slate-200 bg-white p-5">
-            <span className="text-2xl">📍</span>
-            <span>
-              <span className="block font-bold">Our Location</span>
-              <span className="mt-1 text-slate-600">
-                Eldoret, Kenya
-              </span>
-            </span>
-          </div>
+          
 
           <div className="rounded-xl bg-amber-100 p-5">
             <h3 className="font-bold">Serving clients across Kenya</h3>
@@ -258,7 +250,7 @@ I would like to discuss this project with you.
             </button>
 
             
-          </form>
+          </form> 
         </div>
       </section>
     </main>

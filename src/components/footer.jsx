@@ -64,7 +64,7 @@ export default function Footer() {
             </li>
             <li>Eldoret, Kenya</li>
             <li className="text-sm text-slate-400">
-              Serving clients across Kenya.
+              Serving clients across Kenya and Diaspora.
             </li>
           </ul>
 
