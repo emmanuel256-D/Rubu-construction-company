@@ -112,7 +112,7 @@ I would like to discuss this project with you.
             <span className="flex-shrink-0 w-14 h-14 rounded-full bg-green-100 p-2.5 flex items-center justify-center shadow-sm transition-all duration-300 hover:scale-110 hover:rotate-3  hover:shadow-md active:scale-90">
               <img src={What} alt="WhatsApp" className="w-full h-full object-contain rounded-full" /></span>
               
-    <span className="block font-bold">WhatsApp Me !</span>
+    <span className="block font-extrabold">WhatsApp</span>
     
           </a>
 
@@ -123,7 +123,7 @@ I would like to discuss this project with you.
             <span className="flex-shrink-0 w-14 h-14 rounded-full bg-green-100 p-2.5 flex items-center justify-center shadow-sm transition-all duration-300 hover:scale-110 hover:rotate-3  hover:shadow-md active:scale-90">
               <img src={Email} alt="Email" className="w-full h-full object-contain rounded-full" /></span>
               
-    <span className="block font-bold">Reach Me Via Email</span>
+    <span className="block font-bold">Reach  Via Email</span>
   
           </a>
           <a
