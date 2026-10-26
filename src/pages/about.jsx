@@ -66,7 +66,7 @@ export default function About() {
           </p>
           <p className="mt-4 leading-8 text-slate-600">
             Based in Eldoret, Kenya, we welcome enquiries from clients
-            across the country. Every project begins with understanding
+            across the country and diaspora. Every project begins with understanding
             the client's requirements and identifying an appropriate
             way forward.
           </p>

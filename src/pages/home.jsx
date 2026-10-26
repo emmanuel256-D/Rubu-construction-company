@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Welding from '../images/welding.jpeg'
 
 const features = [
   {
@@ -45,12 +46,18 @@ const services = [
     image:
       "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=85",
   },
+  {
+  number: "04",
+  title: "Welding Services",
+  text: "Strong, durable welding and custom metal fabrication for gates, grills, steel structures, and other metalwork.",
+  image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80"
+},
 ];
 
 export default function Home() {
   return (
     <main className="overflow-hidden bg-white text-slate-900">
-      {/* HERO */}
+      
       <section className="relative flex min-h-[650px] items-center bg-slate-950">
         <img
           src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=90"
